@@ -32,8 +32,8 @@ const doctorSchema = new mongoose.Schema({
     },
     avatar: {
             type: String,
-            required: true,
-            default: ''
+            //required: true,
+            default: 'https://cdn5.vectorstock.com/i/thumb-large/54/69/male-user-icon-vector-8865469.jpg'
     },
     salary: {
         type: Number,

@@ -1,5 +1,5 @@
 *{
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
 }
 body{
     height: 100%;
@@ -9,6 +9,7 @@ body{
 nav{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     font-family: 'Open Sans', sans-serif;
+
 }
 i{
     color: white;
@@ -67,6 +68,9 @@ i.admin{
 .main-content{
     display: flex;
     flex-direction: row;
+    margin-top: 20px;
+    padding: 5px 5px 5px 10px;
+    
     
 
 }
@@ -140,10 +144,12 @@ h4 {
 .row{
     display: flex;
     flex-wrap: wrap;
+    width:100%;
 }
-.main-content{
+.main-content2{
     padding:16px;
     margin-top: 20px; 
+    text-align: center;
 }
 .sticky + .main-content {
     padding-top: 70px;
@@ -203,4 +209,28 @@ input{
 .new-doctor{
     margin-left: auto;
     margin-right: auto;
+}
+.needs-validation label {
+    font-weight: bold;
+}
+.needs-validation{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin:5px;
+    padding: 10px;
+}
+.title{
+    color: white;
+    font-weight:bold;
+}
+.col-4{
+    padding:0;
+}
+.mt-4{
+    display: flex;
+    justify-content: center;
+}
+.navbar-brand{
+    width: 100px;
+    mix-blend-mode: multiply;
+    margin-left:25px;
 }

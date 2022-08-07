@@ -7,16 +7,22 @@ const errorHandler = require('../utils/errorHandler');
 
 //NOTE create a new doctor 
 exports.addDoctor = catchAsyncErrors(async (req, res, next) => {
+    console.log(req.body);
     const doctor = await Doctor.create(req.body);
-    res.status(201).json({
+    /*res.status(201).json({
         succes: true,
         message: 'Successuflly created a new doctor'
-    });
+    });*/
+    res.redirect('/api/v1/doctors');
 });
+
+
 //NOTE add Doctor Form 
 exports.addDoctorForm = catchAsyncErrors(async( req,res,next)=>{
     res.render('newDoctor');
 });
+
+
 //NOTE get all the doctors in the hospital
 exports.showDoctors = catchAsyncErrors(async (req, res, next) => {
     const doctors = await Doctor.find({});
@@ -49,6 +55,8 @@ exports.searchDoctor = catchAsyncErrors(async (req, res, next) => {
 
 
 });
+
+
 //NOTE delete doctor 
 
 exports.deleteDoctor = catchAsyncErrors(async (req, res, next) => {
