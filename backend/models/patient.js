@@ -29,6 +29,10 @@ const patientSchema = new mongoose.Schema({
     room:{
         type: Number,
         default:000
+    },
+    phoneNumber:{
+        type:Number,
+        required:[true,"Please enter the patient phone number "]
     }
 });
 module.exports = new mongoose.model('patient', patientSchema);
