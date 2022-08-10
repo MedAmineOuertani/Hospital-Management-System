@@ -42,6 +42,11 @@ const employeeSchema = new mongoose.Schema({
             default: ''
         }
     }*/
+    ,
+    role:{
+        type:String,
+        required:[true,"please enter the employees role"]
+    }
 });
 
 module.exports = new mongoose.model('employee', employeeSchema);

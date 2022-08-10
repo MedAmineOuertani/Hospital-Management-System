@@ -70,6 +70,7 @@ i.admin{
     flex-direction: row;
     margin-top: 20px;
     padding: 5px 5px 5px 10px;
+    overflow-x: hidden;
     
     
 

@@ -9,10 +9,6 @@ const errorHandler = require('../utils/errorHandler');
 exports.addDoctor = catchAsyncErrors(async (req, res, next) => {
     console.log(req.body);
     const doctor = await Doctor.create(req.body);
-    /*res.status(201).json({
-        succes: true,
-        message: 'Successuflly created a new doctor'
-    });*/
     res.redirect('/api/v1/doctors');
 });
 
@@ -27,11 +23,6 @@ exports.addDoctorForm = catchAsyncErrors(async( req,res,next)=>{
 exports.showDoctors = catchAsyncErrors(async (req, res, next) => {
     const doctors = await Doctor.find({});
     res.render('doctors',{doctors: doctors});
-    /*res.status(200).json({
-        success: true,
-        count: doctors.length,
-        doctors
-    });*/
     
 
 });
@@ -39,16 +30,10 @@ exports.showDoctors = catchAsyncErrors(async (req, res, next) => {
 //NOTE  searching for a specific doctor 
 exports.searchDoctor = catchAsyncErrors(async (req, res, next) => {
     const queryStr = req.query;
-    console.log(queryStr);
     let apiFeature = new APIFeatures(Doctor, queryStr).filter();
     const results = await apiFeature.query;
     if (results) {
         res.render('doctors',{doctors: results});
-        /*res.status(200).json({
-            success: true,
-            count: results.length,
-            results
-        });*/
     } else {
         next(new errorHandler("somethingwent wrong !", 404));
     }

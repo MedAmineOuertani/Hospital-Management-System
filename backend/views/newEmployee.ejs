@@ -1,0 +1,48 @@
+<%- include('components/header');%>
+<div class="main-content2">
+<div class="col-md-12 order-md-1 new-doctor">
+    <h2 class="mb-3 title ">Add a new Employee</h2>
+    <form class="needs-validation" action="/api/v1/employee/new" method="post">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="fName">First name</label>
+          <input type="text" class="form-control" id="fName" name="fName" placeholder="" value="" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="lName">Last name</label>
+          <input type="text" class="form-control" id="lName" name="lName" placeholder="" value="" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="speciality">Role</label>
+        <input type="text" class="form-control" name="role" placeholder="Role" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="dateOfBirth">Date Of Birth</label>
+        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+      </div> 
+
+      <div class="mb-3">
+        <label for="sex">Sex</label><br>
+        <select name="sex" id="sex">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter the doctor's phone number">
+      </div>
+      </div>
+      <div class="mb-3">
+        <label for="salary">Salary</label><br>
+        <input type="number" name="salary" id="salary" placeholder="Enter the doctor's salary">
+      </div>
+      <hr class="mb-4">
+      <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>
+    </form>
+  </div>
+</div>
+<%- include ('components/footer'); %>
