@@ -45,3 +45,7 @@ exports.newAppointment = catchAsyncErrors(async (req, res, next) => {
         next(new errorHandler("Check the doctor or the patient credentials again", 404));
     }
 });
+
+exports.showAppointments = catchAsyncErrors(async(req,res,next)=>{
+    res.render('appointments');
+});
