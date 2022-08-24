@@ -47,5 +47,7 @@ exports.newAppointment = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.showAppointments = catchAsyncErrors(async(req,res,next)=>{
-    res.render('appointments');
+    const todaysAppointments = await Appointment.find({date:new Date()});
+    const upcomingAppointments = await Appointment.find({date:{$gt:new Date()}});
+    res.render('appointments',{todaysAppointments:todaysAppointments,upcomingAppointments:upcomingAppointments});
 });

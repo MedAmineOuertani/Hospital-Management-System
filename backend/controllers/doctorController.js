@@ -49,9 +49,5 @@ exports.deleteDoctor = catchAsyncErrors(async (req, res, next) => {
     const doctor = await Doctor.findOneAndDelete({
         _id: id
     });
-    res.status(200).json({
-        success: true,
-        message: "successfully deleted",
-        doctor
-    });
+    res.redirect('/api/v1/doctors');
 });

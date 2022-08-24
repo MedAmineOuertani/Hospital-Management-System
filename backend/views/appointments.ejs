@@ -1,11 +1,34 @@
 <%- include ('components/header'); %>
 
+<div class="appointments row">
+    <div class="cards">
+        <div class="cards-text">
+            <a href="#">
+                Today's Appointments : 
+            </a>
+        </div>
+        <div class="cards-img-content">
+            <p class="cards-infos">
+                <%=todaysAppointments.length%>
+            </p>
+            <i class="fa-solid fa-calendar-check cards-img"></i>
+        </div>
+    </div>
+    <div class="cards red">
+        <div class="cards-text">
+            <a href="#">
+                Total Upcoming Appointments : 
+            </a>
+        </div>
+        <div class="cards-img-content">
+            <p class="cards-infos">
+                <%=upcomingAppointments.length%>
+            </p>
+            <i class="fa-solid fa-calendar-check cards-img"></i>
+        </div>
+    </div>
 
-<div class="calendar-container">
-    <div id="calendar"></div>
 </div>
-<script src="/js/appointments.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
 
 
 <%- include ('components/footer'); %>

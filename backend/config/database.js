@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectToDataBase=() => {
     mongoose.connect(process.env.DB_LOCAL_URL,{useNewUrlParser: true}).then(con => {
-        console.log('Connected Successfully to the Hospital Database !');
+        console.log('Successfully Connected to the Hospital Database !');
     });
 }
 
