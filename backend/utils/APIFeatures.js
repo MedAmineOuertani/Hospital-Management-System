@@ -1,4 +1,3 @@
-
 class APIFeatures {
     constructor(query , queryStr){
         this.query = query ;
@@ -16,37 +15,78 @@ class APIFeatures {
         queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, match => `$${match}`);
         queryStr = queryStr.replace(/\b(keyword)\b/g, match => `name`);
         queryStr = JSON.parse(queryStr);
-        if (queryStr.fName == '') {
-            const removeFields = ['fName'];
+
+        //NOTE checking if we filtering appointments or not
+        if(queryStr.appointment){
+            const deleteFields=['appointment'];
+            deleteFields.forEach(el=>delete queryStr[el]);
+            if(queryStr.doctorName==''){
+            const removeFields = ['doctorName'];
             removeFields.forEach(el => delete queryStr[el]);
-        } else {
-            queryStr.fName = {
-                $regex: this.queryStr.fName,
-                $options: 'i'
+            }else{
+            queryStr.doctorName={
+                $regex: this.queryStr.doctorName,
+                $options:'i'
+            };
+            
+
+            }
+            if(queryStr.patientName==''){
+            const removeFields = ['patientName'];
+            removeFields.forEach(el => delete queryStr[el]);
+            }else{
+            queryStr.patientName={
+                $regex: this.queryStr.patientName,
+                $options:'i'
             }
         }
-        if (queryStr.lName == '') {
-            const removeFields = ['lName'];
+        if(queryStr.date==''){
+            const removeFields = ['date'];
             removeFields.forEach(el => delete queryStr[el]);
-        } else {
-            queryStr.lName = {
-                $regex: this.queryStr.lName,
-                $options: 'i'
+        }else{
+            let date = new Date(this.queryStr.date);
+            date.setDate(date.getDate()+1);
+            queryStr.date={
+                    $eq: date
             }
         }
-        if (queryStr.dateOfBirth == '') {
-            const removeFields = ['dateOfBirth'];
-            removeFields.forEach(el => delete queryStr[el]);
-        }
-        if (queryStr.speciality == '') {
-            const removeFields = ['speciality'];
-            removeFields.forEach(el => delete queryStr[el]);
-        } else {
-            queryStr.speciality = {
-                $regex: this.queryStr.speciality,
-                $options: 'i'
+
+        }else{
+            if (queryStr.fName == '') {
+                const removeFields = ['fName'];
+                removeFields.forEach(el => delete queryStr[el]);
+            } else {
+                queryStr.fName = {
+                    $regex: this.queryStr.fName,
+                    $options: 'i'
+                }
             }
+            if (queryStr.lName == '') {
+                const removeFields = ['lName'];
+                removeFields.forEach(el => delete queryStr[el]);
+            } else {
+                queryStr.lName = {
+                    $regex: this.queryStr.lName,
+                    $options: 'i'
+                }
+            }
+            if (queryStr.dateOfBirth == '') {
+                const removeFields = ['dateOfBirth'];
+                removeFields.forEach(el => delete queryStr[el]);
+            }
+            if (queryStr.speciality == '') {
+                const removeFields = ['speciality'];
+                removeFields.forEach(el => delete queryStr[el]);
+            } else {
+                queryStr.speciality = {
+                    $regex: this.queryStr.speciality,
+                    $options: 'i'
+                }
+            }
+
         }
+
+
         this.query = this.query.find(queryStr);
         return this;
     }

@@ -1,0 +1,15 @@
+<%- include('./components/header');%>
+<div class="rooms-container">
+    <table class="rooms-table">
+        <% for (var i =0; i <=6;  i++ ) { %>
+            <tr>
+                <% for (var j =1; j <=10;  j++ ) { %>
+                    <th> 
+                        <%= j+i*10 %> 
+                    </th>
+                <% } %>
+            </tr>
+        <% } %>
+    </table>
+</div>
+<%- include('./components/footer');%>

@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </div><br>
-                <a href="/api/v1/employee/delete?id=<%=item._id%>" class="btn btn-primary btn-danger">Delete</a>
+                <a href="/api/v1/employee/delete?id=<%=item._id%>" class="btn btn-primary btn-danger" onclick="return confirm('Do you want to delete this Employee ?');">Delete</a>
             </div>
         </div>
     </div>

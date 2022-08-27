@@ -28,7 +28,9 @@ const patientSchema = new mongoose.Schema({
     },
     room:{
         type: Number,
-        default:000
+        default:000,
+        unique: true
+
     },
     phoneNumber:{
         type:Number,

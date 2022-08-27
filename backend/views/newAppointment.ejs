@@ -1,0 +1,51 @@
+<%- include('components/header');%>
+<div class="row">
+    <div class="main-content2">
+        <div class="col-md-12 order-md-1 new-doctor">
+            <h2 class="mb-3 title ">Setting a new Appointment</h2>
+            <form class="needs-validation" action="/api/v1/appointment/new" method="post">
+              <div class="row">
+                <fieldset class="row">
+                  <legend>Patient's informations</legend>
+                  <div class="col-md-6 mb-3">
+                    <label for="fName">First name</label>
+                    <input type="text" class="form-control" id="patientFName" name="fName" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="lName">Last name</label>
+                    <input type="text" class="form-control" id="patientLName" name="lName" placeholder="" value="" required>
+                </div>
+
+                </fieldset>
+                <fieldset class="row">
+                  <legend>Doctors's informations</legend>
+                  <div class="col-md-6 mb-3">
+                    <label for="fName">First name</label>
+                    <input type="text" class="form-control" id="fName" name="doctorFName" placeholder="" value="" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="lName">Last name</label>
+                    <input type="datetime-local" class="form-control" id="lName" name="doctorLName" placeholder="" value="" required>
+                </div>
+
+                </fieldset>
+        
+              <div class="mb-3">
+                <label for="date">Date</label>
+                <input type="date" class="form-control" id="date" name="date">
+              </div>
+              <div class="mb-3">
+                <label for="time">Time</label>
+                <input type="time" name="time" id="time">
+              </div> 
+        
+              
+              <hr class="mb-4">
+              <div class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+</div>
+<%- include('components/footer');%>

@@ -1,33 +1,36 @@
 <%- include ('components/header'); %>
+<div class="filter-form">
+    <form action="/api/v1/appointment" method="get">
 
-<div class="appointments row">
-    <div class="cards">
-        <div class="cards-text">
-            <a href="#">
-                Today's Appointments : 
-            </a>
-        </div>
-        <div class="cards-img-content">
-            <p class="cards-infos">
-                <%=todaysAppointments.length%>
-            </p>
-            <i class="fa-solid fa-calendar-check cards-img"></i>
-        </div>
-    </div>
-    <div class="cards red">
-        <div class="cards-text">
-            <a href="#">
-                Total Upcoming Appointments : 
-            </a>
-        </div>
-        <div class="cards-img-content">
-            <p class="cards-infos">
-                <%=upcomingAppointments.length%>
-            </p>
-            <i class="fa-solid fa-calendar-check cards-img"></i>
-        </div>
-    </div>
+        <input type="text" placeholder="Enter Patient's Name" name="patientName">
+        <input type="text" placeholder="Enter Doctor's Name" name="doctorName">
+        <input type="date" name="date">
+        <input type="text" name="appointment" value="yes" style="display : none">
+        <button id="form-btn" type="submit">Search</button>
+    </form>
+    <a id="add-button" href="/api/v1/appointment/new">+</a>
+</div>
 
+<div class="appointments-container">
+    <table class="appointments-table">
+        <tr class="sticky-table-head">
+            <th>Doctor</th>
+            <th>Patient</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th></th>
+        </tr>
+        <% appointments.forEach((item)=>{ %>
+        <tr>
+            <td><%=item.doctorName%></td>
+            <td><%=item.patientName%></td>
+            <td><%=item.date%></td>
+            <td><%=item.time%></td>
+            <td><a href="/api/v1/appointment/delete?id=<%=item._id%>" onclick="return confirm('Are you sure you want to delete this appointment ?');"><i class="fa-solid fa-trash-can"></i></td>
+        </tr>
+        <%}); %>
+
+    </table>
 </div>
 
 

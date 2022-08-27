@@ -1,6 +1,6 @@
 <%- include('components/header');%>
 <div class="main-content2">
-<div class="col-md-12 order-md-1 new-doctor">
+  <div class="col-md-12 order-md-1 new-doctor">
     <h2 class="mb-3 title ">Add a new Patient</h2>
     <form class="needs-validation" action="/api/v1/patient/new" method="post">
       <div class="row">
@@ -11,25 +11,34 @@
         <div class="col-md-6 mb-3">
           <label for="lName">Last name</label>
           <input type="text" class="form-control" id="lName" name="lName" placeholder="" value="" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="dateOfBirth">Date Of Birth</label>
+          <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+        </div>
+
+        <div class="mb-3">
+          <label for="sex">Sex</label><br>
+          <select name="sex" id="sex">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="number" class="form-control" id="phoneNumber" name="phoneNumber"
+            placeholder="Enter the patient's phone number">
+        </div>
       </div>
-
       <div class="mb-3">
-        <label for="dateOfBirth">Date Of Birth</label>
-        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
-      </div> 
-
-      <div class="mb-3">
-        <label for="sex">Sex</label><br>
-        <select name="sex" id="sex">
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
+        <label for="room">Room</label>
+        <select name="room" id="room">
+          <%availableRooms.forEach( (item) => { %>
+          <option value="<%= item%>"><%=item %></option>
+          <%});%>
         </select>
-      </div>
-
-      <div class="mb-3">
-        <label for="phoneNumber">Phone Number</label>
-        <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter the patient's phone number">
-      </div>
       </div>
       <hr class="mb-4">
       <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>

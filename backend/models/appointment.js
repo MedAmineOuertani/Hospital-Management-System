@@ -9,9 +9,21 @@ const appointmentSchema = new mongoose.Schema({
         type:String,
         required: true
     },
+    doctorName:{
+        type:String,
+        required:[true,"please neter the doctor name "]
+    },
+    patientName:{
+        type:String,
+        required:[true,"please enter the patient name"]
+    },
     date:{
         type: Date,
         required: [true,"You need to specifiy the date"]
+    },
+    time:{
+        type: String,
+        required:[true,'Please enter the appointments time']
     }
 });
 
