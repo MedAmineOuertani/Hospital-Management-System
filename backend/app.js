@@ -23,6 +23,7 @@ const appointment = require('./routes/appointment');
 const employee = require('./routes/employee');
 const auth = require('./routes/auth');
 const room = require('./routes/room');
+const dashboard = require('./routes/dashboard');
 
 app.use('/api/v1',doctor);
 app.use('/api/v1',patient);
@@ -30,6 +31,7 @@ app.use('/api/v1',appointment);
 app.use('/api/v1',employee);
 app.use('/api/v1',auth);
 app.use('/api/v1',room);
+app.use('/api/v1',dashboard);
 
 
 //NOTE Middleware to handle errors 

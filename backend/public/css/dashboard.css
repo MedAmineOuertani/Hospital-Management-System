@@ -1,0 +1,43 @@
+.dashboard-card-container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 90%;
+}
+.card{
+    width: 32%;
+    height: 250px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+   
+}
+
+.dashboard-card-container .green , .dashboard-card-container .red {
+    color:white;
+}
+.icon-card{
+    width: 75px;
+}
+.infos{
+    position: relative;
+    left: 200px;
+    top:  100px;
+}
+.piechart-container{
+    display: flex;
+    padding: 20px;
+    justify-content: end;
+
+}
+#piechart{
+    
+    display: flex;
+    justify-content: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}

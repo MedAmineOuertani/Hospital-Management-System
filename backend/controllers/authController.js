@@ -38,7 +38,7 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
 
     }
     sendToken(user, 200, res);
-    res.redirect('/api/v1/doctors');
+    res.redirect('/api/v1/dashboard');
 
     
 

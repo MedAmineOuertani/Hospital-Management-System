@@ -3,10 +3,20 @@
     <table class="rooms-table">
         <% for (var i =0; i <=6;  i++ ) { %>
             <tr>
-                <% for (var j =1; j <=10;  j++ ) { %>
-                    <th> 
-                        <%= j+i*10 %> 
-                    </th>
+                <% for ( var j =1; j <=10;  j++ ) { %>
+                <% if ( availableRooms.indexOf(j+i*10)!= -1 ) { %>
+                <th class="green">
+                    <a href="/api/v1/room?room=<%= j+i*10 %>">
+                        <%= j+i*10 %>
+                    </a>
+                </th>
+                <% }else{ %>
+                <th class="red">
+                    <a href="/api/v1/room?room=<%= j+i*10 %>">
+                        <%= j+i*10 %>
+                    </a>
+                </th >
+                <% } %>
                 <% } %>
             </tr>
         <% } %>

@@ -1,2 +1,22 @@
-<% include('./components/header');%>
-<% include('./components/footer');%>
+<%- include('./components/header');%>
+<div class="room-info-container">
+    <div class="card-room">
+        <div class="card-room-header">
+            <h2><b>Room number : <%= room %></b></h2><hr style="color:gray;">
+        </div>
+        <%if(patient){%>
+            <h4>THIS ROOM IS FOR :</h4> <hr style="color: gray;">
+            <div class="grey">
+                
+                <h4><%=patient.fName%> <%=patient.lName%></h4>
+                <h4><%=patient.dateOfBirth.getDate()+1%>-<%=patient.dateOfBirth.getMonth()+1%>-<%=patient.dateOfBirth.getFullYear()%></h4>
+                <h4><%=patient.sex%></h4>
+            </div>
+        <%}else{%>
+            <div class="grey">
+                <h4>THIS ROOM IS AVAILABLE FOR RESERVATION </h4>
+            </div>
+        <%}%>
+    </div>
+</div>
+<%- include('./components/footer');%>

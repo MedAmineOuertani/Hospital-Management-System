@@ -1,0 +1,61 @@
+<%- include('./components/header2');%>
+
+    <div  class="dashboard-card-container">
+        <div class="card green">
+            <div>
+                <h3>Total Patients :</h3>
+                <h2 class="infos"><b><%=patients.length%></b></h2>
+            </div>
+            <div>
+                <img class="icon-card" src="/img/patient.png" alt="">
+            </div>
+        </div>
+        <div class="card yellow">
+            <div>
+                <h3>Total Doctors :</h3>
+                <h2 class="infos"><b><%=doctors.length%></b></h2>
+            </div>
+            <div>
+                <img class="icon-card" src="/img/doctor.png" alt="">
+            </div>
+        </div>
+        <div class="card red">
+            <div>
+                <h3>Total uppcoming appointments :</h3>
+                <h2 class="infos" style="top:68px;"><b><%=appointments.length%></b></h2>
+            </div>
+            <div>
+                <img class="icon-card" src="/img/appointment.png" alt="">
+            </div>
+        </div>
+    
+    </div>
+    <div class="piechart-container">
+        <div id="piechart" style="width: 800px; height: 400px;"></div>
+    </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        const availableRooms = <%=availableRooms.length%>;
+        var data = google.visualization.arrayToDataTable([
+
+          ['Task', 'Hours per Day'],
+          ['Available Rooms',     availableRooms],
+          ['Reserved Rooms',      70-availableRooms]
+        ]);
+
+        var options = {
+          title: 'Rooms Status'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+<%- include('./components/footer');%>
