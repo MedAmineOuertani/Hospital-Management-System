@@ -35,7 +35,7 @@ exports.searchDoctor = catchAsyncErrors(async (req, res, next) => {
     if (results) {
         res.render('doctors',{doctors: results});
     } else {
-        next(new errorHandler("somethingwent wrong !", 404));
+        next(new errorHandler("something went wrong !", 404));
     }
 
 
